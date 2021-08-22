@@ -56,9 +56,8 @@ class ProductController extends Controller
         $request->validate([
         'name'             =>'required',
         'description'       => 'required',
-        'purchase_price'    => 'required',
-        'sale_price'        => 'required',
-        'stock'              => 'required',
+        'price'    => 'required',
+
     ]);
 
         $request_data = $request->all();
@@ -110,9 +109,8 @@ class ProductController extends Controller
         $request->validate([
             'name'             =>'required',
             'description'       => 'required',
-            'purchase_price'    => 'required',
-            'sale_price'        => 'required',
-            'stock'              => 'required',
+            'price'    => 'required',
+
         ]);
 
         $request_data = $request->all();

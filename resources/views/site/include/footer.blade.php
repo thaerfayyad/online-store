@@ -1,5 +1,7 @@
+
+<br><br><br><br>
 <!-- Start copyright  -->
-<div class="footer-copyright">
+<div class="footer-copyright mt-10">
     <p class="footer-company">All Rights Reserved. &copy; 2018 <a href="#">ThewayShop</a> Design By :
         <a href="https://html.design/">html design</a></p>
 </div>

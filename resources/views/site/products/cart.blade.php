@@ -24,39 +24,38 @@
                             @if(session()->has('success'))
                                 <div class="alert alert-success"> {{ session()->get('success') }}</div>
                             @endif
-                            @if(count($carts) > 0)
 
-                                @foreach($carts as $cart)
+
+                            @foreach (Cart::content() as $product)
                             <tr>
 
                                 <td class="thumbnail-img">
                                     <a href="#">
-                                        <img class="img-fluid" src="{{asset('uploads/product_images').'/'.$cart['image']}}" alt="" />
+                                        <img class="img-fluid" src="{{ $product->model->image_path }}" alt="" />
                                     </a>
                                 </td>
                                 <td class="name-pr">
                                     <a href="#">
-                                        {{$cart['name']}}
+                                        {{ $product->model->name }}
                                     </a>
                                 </td>
                                 <td class="price-pr">
-                                    <p>$ {{$cart['price']}}</p>
+                                    <p>$ {{ $product->model->price }}</p>
                                 </td>
-                                <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
+                                <td class="quantity-box"> <input type="number" class="quantity" value="{{ $product->qty }}" min="1"
+                                    data-url="{{ route('web.update.cart',$product->rowId) }}" data-method="put"></td>
                                 <td class="total-pr">
-                                    <p>{{$cart['quantity']}}</p>
+                                    <p>{{ $product->qty }}</p>
                                 </td>
                                 <td class="remove-pr">
-                                    <a href="{{route('web.deleteCart',$cart['id'])}}">
+                                    <a href="{{ route('web.destroy.cart',$product->rowId) }}">
                                         <i class="fas fa-times"></i>
                                     </a>
                                 </td>
 
                             </tr>
                                 @endforeach
-                            @else
-                                <td > <h3 class="text-center well">there are no Cart  yet</h3></td>
-                            @endif
+
 
 
 
@@ -77,33 +76,19 @@
                         <h3>Order summary</h3>
                         <div class="d-flex">
                             <h4>Sub Total</h4>
-                            <div class="ml-auto font-weight-bold"> $ 130 </div>
+                            <div class="ml-auto font-weight-bold">  ${{ number_format(Cart::subtotal() - session()->get('coupon')) }} </div>
                         </div>
-                        <div class="d-flex">
-                            <h4>Discount</h4>
-                            <div class="ml-auto font-weight-bold"> $ 40 </div>
-                        </div>
-                        <hr class="my-1">
-                        <div class="d-flex">
-                            <h4>Coupon Discount</h4>
-                            <div class="ml-auto font-weight-bold"> $ 10 </div>
-                        </div>
-                        <div class="d-flex">
-                            <h4>Tax</h4>
-                            <div class="ml-auto font-weight-bold"> $ 2 </div>
-                        </div>
+
                         <div class="d-flex">
                             <h4>Shipping Cost</h4>
                             <div class="ml-auto font-weight-bold"> Free </div>
                         </div>
                         <hr>
-                        <div class="d-flex gr-total">
-                            <h5>Grand Total</h5>
-                            <div class="ml-auto h5"> $ 388 </div>
-                        </div>
-                        <hr> </div>
+
+                        <hr>
+                    </div>
                 </div>
-                <div class="col-12 d-flex shopping-box"><a href="{{route('web.checkout',$cart['price'])}}" class="ml-auto btn hvr-hover">Checkout</a> </div>
+                <div class="col-12 d-flex shopping-box"><a href="#" class="ml-auto btn hvr-hover">Checkout</a> </div>
             </div>
 
         </div>

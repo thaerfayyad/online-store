@@ -64,19 +64,10 @@
                         </div>
 
                         <div class="form-group">
-                            <label>purchase price</label>
-                            <input type="number" name="purchase_price" step="0.01" class="form-control" value="{{ old('purchase_price') }}">
+                            <label> price</label>
+                            <input type="number" name="price" step="0.01" class="form-control" value="{{ old('price') }}">
                         </div>
 
-                        <div class="form-group">
-                            <label>sale price</label>
-                            <input type="number" name="sale_price" step="0.01" class="form-control" value="{{ old('sale_price') }}">
-                        </div>
-
-                        <div class="form-group">
-                            <label>stock</label>
-                            <input type="number" name="stock" class="form-control" value="{{ old('stock') }}">
-                        </div>
 
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary "><i class="fa fa-plus"></i> Save</button>

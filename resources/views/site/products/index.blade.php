@@ -33,7 +33,7 @@
                                     <ul>
                                         <li><a href="# data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                        </ul>
-                                    <a class="cart" href="#">Add to Cart</a>
+                                    <a class="cart" href="{{ route('web.add.cart',$product->id )}}">Add to Cart</a>
                                 </div>
                             </div>
                             <div class="why-text">

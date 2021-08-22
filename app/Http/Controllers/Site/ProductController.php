@@ -2,16 +2,11 @@
 
 namespace App\Http\Controllers\Site;
 
-use App\Exports\ProductsExport;
+
 use App\Http\Controllers\Controller;
-use App\Mail\SendMail;
-use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
-use Maatwebsite\Excel\Facades\Excel;
-use PDF;
-
+use Gloudemans\Shoppingcart\Facades\Cart;
 class ProductController extends Controller
 {
     /**
@@ -24,34 +19,35 @@ class ProductController extends Controller
         $products = Product::all();
         return view('site.products.index', compact('products'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function cart ()
     {
-        //
+        return view('site.products.cart');
+    }
+    public function add_cart(Request $request,$id)
+    {
+        $product = Product::FindOrFail($id);
+
+        $product = Cart::add($product->id, $product->name, 1 , $product->price)
+            ->associate('App\Models\Product');
+         session()->flash('success', 'product added to cart successfully');
+        return redirect()->back();
+    }
+    public function update(Request $request, $id)
+    {
+
+        $cart = Cart::update($id, $request->quantity);
+
+        return response()->json($cart);
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function destroy($id)
     {
-        //
-    }
+        $cart = Cart::content()->where('rowId', $id)->first();
+        Cart::remove($id);
+        return response()->json($cart);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
+    }
     public function show(Product $product)
     {
 

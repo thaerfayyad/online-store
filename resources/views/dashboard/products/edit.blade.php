@@ -39,7 +39,6 @@
                             </select>
                         </div>
 
-                        @foreach (config('translatable.locales') as $locale)
                             <div class="form-group">
                                 <label>name</label>
                                 <input type="text" name="name" class="form-control" value="{{ $product->name }}">
@@ -50,7 +49,6 @@
                                 <textarea name="description" class="form-control ckeditor">{{ $product->description }}</textarea>
                             </div>
 
-                        @endforeach
 
                         <div class="form-group">
                             <label>image</label>
@@ -62,18 +60,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label>purchase price</label>
-                            <input type="number" name="purchase_price" step="0.01" class="form-control" value="{{ $product->purchase_price }}">
-                        </div>
-
-                        <div class="form-group">
-                            <label>sale price</label>
-                            <input type="number" name="sale_price" step="0.01" class="form-control" value="{{ $product->sale_price }}">
-                        </div>
-
-                        <div class="form-group">
-                            <label>stock</label>
-                            <input type="number" name="stock" class="form-control" value="{{ $product->stock}}">
+                            <label> price</label>
+                            <input type="number" name="price" step="0.01" class="form-control" value="{{ $product->price }}">
                         </div>
 
                         <div class="form-group">

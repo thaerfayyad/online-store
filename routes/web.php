@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 Route::name('web.')->group(function (){
     Route::get('/home',[\App\Http\Controllers\Site\HomeController::class,'index'])->name('home');
     Route::get('/', [\App\Http\Controllers\Site\HomeController::class,'index'])->name('home');
+    /// cart routes
+    Route::get('cart',[\App\Http\Controllers\Site\ProductController::class,'cart'])->name('cart');
+    Route::get('add-cart/{id}',[\App\Http\Controllers\Site\ProductController::class,'add_cart'])->name('add.cart');
+    Route::get('update-cart/{id}',[\App\Http\Controllers\Site\ProductController::class,'update'])->name('update.cart');
+    Route::get('destroy-cart/{id}',[\App\Http\Controllers\Site\ProductController::class,'destroy'])->name('destroy.cart');
+
 // ///////////////////////products routes
     Route::resource('/products',\App\Http\Controllers\Site\ProductController::class);
 //     ///////////login routes

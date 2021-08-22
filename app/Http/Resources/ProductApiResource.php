@@ -22,9 +22,7 @@ class ProductApiResource extends JsonResource
             'description' => $this->description,
             'category_id' => $this-> category_id,
             'image' => $this-> image,
-            'purchase_price' => $this-> purchase_price,
-            ' sale_price' => $this-> sale_price,
-            '  stock' => $this->  stock ,
+            'purchase_price' => $this-> price,
             'created_at' => $this->created_at->format('Y-m-d h:i a'),
         ];
     }

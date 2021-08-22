@@ -64,10 +64,8 @@
                                 <th>description</th>
                                 <th>category</th>
                                 <th>image</th>
-                                <th>purchase price</th>
-                                <th>sale price</th>
-                                <th>profit percent %</th>
-                                <th>stock</th>
+                                <th>price</th>
+
                                 <th>action</th>
                             </tr>
                             </thead>
@@ -80,10 +78,8 @@
                                     <td>{!! $product->description !!}</td>
                                     <td>{{ $product->category->name }}</td>
                                     <td><img src="{{ $product->image_path }}" style="width: 100px"  class="img-thumbnail" alt=""></td>
-                                    <td>{{ $product->purchase_price }}</td>
-                                    <td>{{ $product->sale_price }}</td>
-                                    <td>{{ $product->profit_percent }} %</td>
-                                    <td>{{ $product->stock }}</td>
+                                    <td>{{ $product->price }}</td>
+
                                     <td>
 
                                             <a href="{{ route('products.edit', $product->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> edit</a>

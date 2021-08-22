@@ -18,7 +18,7 @@
 {{--                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>--}}
                     <li class="nav-item "><a class="nav-link" href="{{route('web.products.index')}}">Products</a></li>
                     <li class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Cart</a>
+                        <a href="{{ route('web.cart') }}" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Cart</a>
                         <ul class="dropdown-menu">
                             {{--  <li><a href="#">Cart</a></li>  --}}
 
