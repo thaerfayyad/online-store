@@ -11,6 +11,7 @@
         "hardevine/shoppingcart": "^3.0",
         "intervention/image": "^2.6",
         "laravel/framework": "^8.54",
+        "laravel/passport": "^10.1",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
